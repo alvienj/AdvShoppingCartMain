@@ -27,7 +27,7 @@ def setUp():
         print(f'We\'re at the Advantage Shopping Cart homepage -- {driver.title}')
         print(f'We\'re seeing title message -- "Advantage Shopping"')
     else:
-        print(f'We\'re not at the Advantage Shopping Cart homepage. Check your code!')
+        print(f'We\'re not at the Advantage Shopping homepage. Check your code!')
         driver.close()
         driver.quit()
 
