@@ -19,10 +19,11 @@ def setUp():
 
     # Navigating to the Advantage Shopping website
     driver.get(locators.adshopcart_url)
-
+    
+    url_title = driver.title
 
     # Checking that we're on the correct URL address and we're seeing correct title
-    if driver.current_url == locators.adshopcart_url and driver.title == 'Advantage Shopping':
+    if driver.current_url == locators.adshopcart_url and url_title == driver.title:
         print(f'We\'re at the Advantage Shopping Cart homepage -- {driver.title}')
         print(f'We\'re seeing title message -- "Advantage Shopping"')
     else:
