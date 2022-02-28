@@ -40,3 +40,7 @@ def tearDown():
         print(f'Test Completed at: {datetime.datetime.now()}')
         driver.close()
         driver.quit()
+
+
+setUp()
+tearDown()
