@@ -1,8 +1,11 @@
+from selenium.webdriver.chrome.service import Service
 import adshopcart_locators as locators
 from selenium import webdriver
 import datetime
 
-driver = webdriver.Chrome('C:/Users/User/PycharmProjects/si/advantage_shopping_cart/chromedriver.exe')
+s = Service('C:/Users/User/PycharmProjects/si/advantage_shopping_cart/chromedriver.exe')
+driver = webdriver.Chrome(service=s)
+
 
 
 def setUp():
