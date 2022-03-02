@@ -1,10 +1,10 @@
-import sys
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 import adshopcart_locators as locators
 from selenium import webdriver
 from time import sleep
 import datetime
+import sys
 
 s = Service('C:/Users/User/PycharmProjects/si/advantage_shopping_cart/chromedriver.exe')
 driver = webdriver.Chrome(service=s)
@@ -33,8 +33,8 @@ def setUp():
 
 def createnewaccount():
     driver.find_element(By.ID, 'menuUser').click()
-    sleep(.5)
-    driver.find_element(By.XPATH, "//a[text()='CREATE NEW ACCOUNT']").click()
+    sleep(5)
+    driver.find_element(By.CSS_SELECTOR, ".create-new-account").click()
     sleep(.5)
     driver.find_element(By.NAME, 'usernameRegisterPage').send_keys(locators.adshopcart_username)
     sleep(.5)
@@ -80,13 +80,7 @@ def signout():
     driver.find_element(By.XPATH, "//*[@id='loginMiniTitle']//label[text()='Sign out']").click()
     sleep(1)
 
-def logger():
-    old_instance = sys.stdout
-    log_file = open('message.log', 'w')
-    sys.stdout = log_file
-    print(f'Username {locators.adshopcart_username} \nPassword: {locators.adshopcart_password}')
-    sys.stdout = old_instance
-    log_file.close()
+
 
 def signin():
     driver.find_element(By.ID, 'hrefUserIcon').click()
@@ -127,6 +121,15 @@ def tearDown():
         print(f'Test Completed at: {datetime.datetime.now()}')
         driver.close()
         driver.quit()
+
+
+def logger():
+    old_instance = sys.stdout
+    log_file = open('message.log', 'w')
+    sys.stdout = log_file
+    print(f'Username {locators.adshopcart_username} \nPassword: {locators.adshopcart_password}')
+    sys.stdout = old_instance
+    log_file.close()
 
 
 
