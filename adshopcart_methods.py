@@ -1,4 +1,5 @@
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 import adshopcart_locators as locators
 from selenium import webdriver
@@ -114,6 +115,57 @@ def checkifuserisdeleted():
     if driver.find_element(By.ID, 'signInResultMessage').is_displayed():
         print(f'You have successfully deleted the account.')
 
+def displays():
+    if driver.find_element(By.ID, 'speakersTxt').is_displayed:
+        print(f'The SPEAKERS is displayed.')
+    else:
+        print(f'Not found. Please check your code.')
+    sleep(.5)
+    if driver.find_element(By.ID, 'tabletsTxt').is_displayed:
+        print(f'The TABLETS is displayed.')
+    else:
+        print(f'Not found. Please check your code.')
+    sleep(.5)
+    if driver.find_element(By.ID, 'laptopsTxt').is_displayed:
+        print(f'The LAPTOPS is displayed.')
+    else:
+        print(f'Not found. Please check your code.')
+    sleep(.5)
+    if driver.find_element(By.ID, 'miceTxt').is_displayed:
+        print(f'The MICE is displayed.')
+    else:
+        print(f'Not found. Please check your code.')
+    sleep(.5)
+    if driver.find_element(By.ID, 'headphonesTxt').is_displayed:
+        print(f'The HEADPHONES is displayed.')
+    else:
+        print(f'Not found. Please check your code.')
+
+def tabs():
+    driver.find_element(By.XPATH, "//a[text()='SPECIAL OFFER']").click()
+    sleep(5)
+    driver.find_element(By.XPATH, "//a[text()='POPULAR ITEMS']").click()
+    sleep(5)
+    driver.find_element(By.XPATH, "//a[text()='CONTACT US']").click()
+    sleep(5)
+    driver.find_element(By.XPATH, "//a[text()='OUR PRODUCTS']").click()
+    sleep(.5)
+    if driver.find_element(By.XPATH, "//span[text()='dvantage']").is_displayed:
+        print(f'We are at the home page.')
+    sleep(.5)
+    
+
+def contactus():
+    Select(driver.find_element(By.XPATH, "//*[@name='categoryListboxContactUs']")).select_by_visible_text('Headphones')
+    sleep(.5)
+    Select(driver.find_element(By.XPATH, "//*[@name='productListboxContactUs']")).select_by_visible_text('HP H2310 In-ear Headset')
+    sleep(.5)
+    driver.find_element(By.NAME, 'emailContactUs').send_keys('cool@gmail.com')
+    sleep(.5)
+    driver.find_element(By.NAME, 'subjectTextareaContactUs').send_keys('Hello everyone!')
+    sleep(.5)
+    driver.find_element(By.ID, 'send_btnundefined').click()
+
 
 def tearDown():
     if driver is not None:
@@ -143,5 +195,8 @@ signout()
 signin()
 deleteuser()
 checkifuserisdeleted()
-logger()
+displays()
+tabs()
+contactus()
 tearDown()
+logger()
