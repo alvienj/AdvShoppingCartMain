@@ -1,21 +1,23 @@
 import unittest
 import adshopcart_methods as methods
-import adshopcart_locators as locators
 
-class AdvantageAppPositiveTestCases(unittest.TestCase):
-    
-    @staticmethod 
-    def advantageshopping():
-        setUp()
-        createnewaccount()
-        myaccount()
-        shoppingcart()
-        signout()
-        signin()
-        deleteuser()
-        checkifuserisdeleted()
-        displays()
-        tabs()
-        contactus()
-        tearDown()
-        logger()
+
+
+class AdshopcartPositiveTestCases(unittest.TestCase):
+
+    @staticmethod
+    def adshopcarttest():
+        methods.setUp()
+        methods.createnewaccount()
+        methods.myaccount()
+        methods.shoppingcart()
+        methods.signout()
+        methods.signin()
+        methods.deleteuser()
+        methods.checkifuserisdeleted()
+        methods.setUp()
+        methods.displays()
+        methods.tabs()
+        methods.contactus()
+        methods.tearDown()
+        methods.logger()
